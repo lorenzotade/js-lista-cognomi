@@ -4,9 +4,10 @@ var listaCognomi = ["Marzullo", "Banca", "Bianchi", "Rossi", "Giubertoni", "Volp
 // chiedo all'utente il suo cognome e lo pusho nel mio array
 listaCognomi.push(prompt("Inserisci il tuo cognome:"));
 
-// salvo l'array ordinato in un nuovo array
+// ordino l'array
 var listaCognomi = listaCognomi.sort();
 
+// creo un ciclo for che percorra tutta la lunghezza dell'array e per ogni elemento lo stampi in html
 for (var i = 0; i < listaCognomi.length; i++) {
   var cognome = listaCognomi[i];
 
