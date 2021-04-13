@@ -5,24 +5,26 @@ var listaCognomi = ["Marzullo", "Banca", "Bianchi", "Rossi", "Giubertoni", "Volp
 var congomeUtente = prompt("Inserisci il tuo cognome:");
 listaCognomi.push(congomeUtente);
 
+// clono il mio array in uno nuovo per tenere traccia di entrambi
+var listaOrdinata = listaCognomi.slice();
+
 // ordino l'array
-var listaCognomi = listaCognomi.sort();
+listaOrdinata.sort();
 
 // creo un ciclo for che percorra tutta la lunghezza dell'array e per ogni elemento lo stampi in html
-for (var i = 0; i < listaCognomi.length; i++) {
-  var cognome = listaCognomi[i];
+for (var i = 0; i < listaOrdinata.length; i++) {
+  var cognome = listaOrdinata[i];
 
   //salvo l'innerHTML della lista in una variabile
   var elementoPrec = document.getElementById("lista").innerHTML;
 
-  //punto elementoPrec a cui sommo se stesso + l'indice + cognome inserito dall'utente
+  //punto elementoPrec a cui sommo se stesso + l'indice + cognome
+  document.getElementById("lista").innerHTML = elementoPrec +  "<li> N. " + (i+1) + ": " + cognome + "</li>"
+
+  // se il cognome è uguale al cognome inserito dall'utente, scrivo un messaggio a video
   if (cognome === congomeUtente) {
-    document.getElementById("lista").innerHTML = elementoPrec +  "<li> N. " + (i+1) + ": " + cognome + "</li>"
-    // per tutti gli altri cognomi stampo solo il cognome
-  } else {
-    document.getElementById("lista").innerHTML = elementoPrec +  "<li>" + cognome + "</li>";
-  }
-  
+    document.getElementById("msg").innerHTML = "L'utente " + congomeUtente + " è in posizione N. " + (i+1);
+  } 
 }
   
 //console.log("Cognome numero " + (i+1) + ": " + listaCognomi[i]);
